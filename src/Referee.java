@@ -7,7 +7,7 @@
  */
 public class Referee {
 
-	// TODO: decide which private member variables this class should have and declare them here.
+	// TODO: decide Rewhich private member variables this class should have and declare them here.
 	
 	/**
 	 * constructor - initialize all variables, including the maze.

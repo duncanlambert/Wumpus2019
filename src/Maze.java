@@ -3,8 +3,8 @@
  * It also keeps track of the locations of the rooms of bats, the rooms with pits,
  * and the current location of the Wumpus. (Note that you only need their _locations_).
  */
-public class Maze {
-
+public class Maze
+{
 	// TODO: decide which private member variables Maze needs and set them up here.
 	
 	/**

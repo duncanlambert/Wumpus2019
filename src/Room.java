@@ -11,20 +11,32 @@
 //       create it. 
 //       Nor is this Room class keeping track of the locations of the player, bats, pits,
 //       or Wumpus.
+
 public class Room {
 
 	// TODO: Decide which private member variables Room needs and set them up here.
+	private int r_id;
+	private int r_tunnel0;
+	private int r_tunnel1;
+	private int r_tunnel2;
+
 	
 	/**
 	 * constructor 
 	 * @param id
+	 * @param tunnel0
 	 * @param tunnel1
 	 * @param tunnel2
-	 * @param tunnel3
 	 */
-	public Room(int id, int tunnel1, int tunnel2, int tunnel3)
+	public Room(int id, int tunnel0, int tunnel1, int tunnel2)
 	{
 	// TODO: You write the Room's constructor.
+
+		r_id = id;
+		r_tunnel0 = tunnel0;
+		r_tunnel1 = tunnel1;
+		r_tunnel2 = tunnel2;
+
 	}
 	/**
 	 * getTunnels - returns an array of tunnel numbers for this room.
@@ -32,10 +44,9 @@ public class Room {
 	 */
 	public int[] getTunnels()
 	{
-		int[] tunnelList = null;// I just put the "= null" part here so it will compile.
+		int[] tunnelList = {r_tunnel0, r_tunnel1, r_tunnel2};// I just put the "= null" part here so it will compile.
 		//--------------------
 		// Insert your code here.
-		
 		//--------------------
 		return tunnelList;
 	}
@@ -47,8 +58,8 @@ public class Room {
 	public int getId()
 	{
 		//--------------------
-		// TODO: fix the next line so this method works as intended.
-		return -1; // replace this....
+		// fix the next line so this method works as intended.
+		return r_id; // replace this....
 		//--------------------
 	}
 	
@@ -59,4 +70,8 @@ public class Room {
 	 * @return - the description of the room.
 	 */
 	// TODO: You write the Room's toString method, including its signature.
+	public String toString()
+	{
+		return "You are in Room "+r_id+". Tunnels lead to rooms ";
+	}
 }
