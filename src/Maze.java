@@ -15,7 +15,16 @@ public class Maze
 	{
 		//--------------------
 		// Insert your code here.
-		
+		int[][] listofroomconnections = {{2,8,14}, {7,13,19}, {12,18,0}, {16,17,19}, {11,14,18}, {13,15,18}, {9,14,16},
+				{1,15,17}, {10,16, 0}, {6,11,19}, {8,12,17}, {4,9,13}, {2, 10, 15}, {1, 5, 11}, {4, 6, 0}, {5, 7, 12},
+				{3, 6, 8}, {3, 7, 10}, {2, 4, 5}, {1, 3, 9}};
+
+		Room[] listofrooms = new Room[20];
+		for (int i=0; i<20;i++)
+		{
+			listofrooms[i] = new Room(i, listofroomconnections[i][0], listofroomconnections[i][1], listofroomconnections[i][2]);
+			System.out.println(listofrooms[i]);
+		}
 		//--------------------
 	}
 	/**
@@ -29,7 +38,11 @@ public class Maze
 	 * @return the description.
 	 */
 	// TODO: You write the Maze's getDescriptionForRoom method, including its method signature.
-	
+	String getDescriptionForRoom()
+    {
+        return "n";
+    }
+
 	/**
 	 * getAvailableTunnels - returns an array of room numbers that are
 	 * connected to the given room.
