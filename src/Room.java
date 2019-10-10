@@ -72,6 +72,6 @@ public class Room {
 	// TODO: You write the Room's toString method, including its signature.
 	public String toString()
 	{
-		return "You are in Room "+r_id+". Tunnels lead to rooms ";
+		return "You are in Room "+r_id+". Tunnels lead to rooms "+r_tunnel0+", "+r_tunnel1+", and "+r_tunnel2+".";
 	}
 }

@@ -6,6 +6,7 @@
  * rest of the objects.
  */
 public class Referee {
+    private Maze myMaze;
 
 	// TODO: decide Rewhich private member variables this class should have and declare them here.
 	
@@ -18,6 +19,11 @@ public class Referee {
 	 * is a legal move - is the player allowed to move to the given room from
 	 * where he or she is now?
 	 */
+	public Referee()
+    {
+        myMaze = new Maze();
+    }
+
 	public boolean isALegalMove(int proposedDestination)
 	{
 		boolean isLegal = false;
@@ -34,7 +40,9 @@ public class Referee {
 	public void playGame()
 	{
 		// TODO: write the Referee method "playGame."
+
 		System.out.println("Playing Game."); // placeholder code.
+        //System.out.println(myMaze);
 		
 		
 	}
