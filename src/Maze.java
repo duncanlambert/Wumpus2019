@@ -5,6 +5,7 @@
  */
 public class Maze
 {
+	Room[] listofrooms = new Room[20];
 	// TODO: decide which private member variables Maze needs and set them up here.
 	
 	/**
@@ -19,11 +20,11 @@ public class Maze
 				{1,15,17}, {10,16, 0}, {6,11,19}, {8,12,17}, {4,9,13}, {2, 10, 15}, {1, 5, 11}, {4, 6, 0}, {5, 7, 12},
 				{3, 6, 8}, {3, 7, 10}, {2, 4, 5}, {1, 3, 9}};
 
-		Room[] listofrooms = new Room[20];
+
 		for (int i=0; i<20;i++)
 		{
 			listofrooms[i] = new Room(i, listofroomconnections[i][0], listofroomconnections[i][1], listofroomconnections[i][2]);
-			System.out.println(listofrooms[i]);
+			//System.out.println(listofrooms[i]);
 		}
 		//--------------------
 	}
@@ -54,6 +55,7 @@ public class Maze
 		int[] roomList = null;
 		//--------------------
 		// Insert your code here.
+
 		
 		//--------------------
 		return roomList;
@@ -93,4 +95,19 @@ public class Maze
 	 * @return a list of the entire maze of rooms.
 	 */
 	// TODO: You write the Maze's toString method (optional)
+
+	Room getRoom(int roomNumber)
+	{
+		Room chosenRoom = listofrooms[0];
+		for (int i=0;i<20;i++)
+        {
+			//System.out.println(listofrooms[i].getId());
+            if (listofrooms[i].getId() == roomNumber)
+            {
+                chosenRoom = listofrooms[i];
+            }
+        }
+		return chosenRoom;
+
+	}
 }

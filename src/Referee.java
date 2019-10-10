@@ -5,8 +5,15 @@
  * moves the player makes are legal, and handles interactions with the 
  * rest of the objects.
  */
+import java.util.Scanner;
+
 public class Referee {
     private Maze myMaze;
+    private Room CurrentRoom;
+    private int CurrentRoomNumber;
+    private Scanner keyReader = new Scanner(System.in);
+    private int moveToRoom;
+    private boolean gameIsStillPlaying = true;
 
 	// TODO: decide Rewhich private member variables this class should have and declare them here.
 	
@@ -43,7 +50,24 @@ public class Referee {
 
 		System.out.println("Playing Game."); // placeholder code.
         //System.out.println(myMaze);
-		
+
+        CurrentRoomNumber = (int)(Math.random()*20);
+        while(gameIsStillPlaying)
+        {
+            System.out.println(CurrentRoomNumber);
+
+            CurrentRoom = myMaze.getRoom(CurrentRoomNumber);
+
+            CurrentRoom.getTunnels();
+
+            System.out.println(CurrentRoom);
+
+            System.out.println("Which room would you like to move to?");
+            moveToRoom = keyReader.nextInt();
+
+            CurrentRoomNumber = moveToRoom;
+        }
+
 		
 	}
 }
