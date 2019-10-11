@@ -12,8 +12,10 @@ public class Referee {
     private Room CurrentRoom;
     private int CurrentRoomNumber;
     private Scanner keyReader = new Scanner(System.in);
-    private int moveToRoom;
+    private int moveToRoomNumber;
+    private Room moveToRoom;
     private boolean gameIsStillPlaying = true;
+    private int[] tunnelList;
 
 	// TODO: decide Rewhich private member variables this class should have and declare them here.
 	
@@ -36,7 +38,10 @@ public class Referee {
 		boolean isLegal = false;
 		//----------------------------------
 		// TODO: insert your code here.
-		
+		if (proposedDestination == moveToRoomNumber)
+		{
+
+        }
 		//----------------------------------
 		return isLegal;
 	}
@@ -54,18 +59,31 @@ public class Referee {
         CurrentRoomNumber = (int)(Math.random()*20);
         while(gameIsStillPlaying)
         {
+            boolean newRoomChosen = false;
             System.out.println(CurrentRoomNumber);
 
             CurrentRoom = myMaze.getRoom(CurrentRoomNumber);
 
-            CurrentRoom.getTunnels();
+            tunnelList = CurrentRoom.getTunnels();
+
 
             System.out.println(CurrentRoom);
 
-            System.out.println("Which room would you like to move to?");
-            moveToRoom = keyReader.nextInt();
+            while (newRoomChosen == false)
+            {
+                System.out.println("Which room would you like to move to?");
+                moveToRoomNumber = keyReader.nextInt();
+                if (moveToRoomNumber < 20 && moveToRoomNumber > 0)
+                {
+                    moveToRoom = myMaze.getRoom(moveToRoomNumber);
+                }
 
-            CurrentRoomNumber = moveToRoom;
+                if (isALegalMove(moveToRoomNumber))
+                {
+                    CurrentRoomNumber = moveToRoomNumber;
+                    newRoomChosen = true;
+                }
+            }
         }
 
 		

@@ -56,7 +56,6 @@ public class Maze
 		//--------------------
 		// Insert your code here.
 
-		
 		//--------------------
 		return roomList;
 	}
