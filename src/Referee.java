@@ -36,6 +36,5 @@ public class Referee {
 		// TODO: write the Referee method "playGame."
 		System.out.println("Playing Game."); // placeholder code.
 		
-		
 	}
 }
