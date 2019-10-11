@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * A maze is a collection of twenty linked Rooms.
  * It also keeps track of the locations of the rooms of bats, the rooms with pits,
@@ -145,6 +147,11 @@ public class Maze
 	 * toString - not used in the game, but may be helpful in debugging
 	 * @return a list of the entire maze of rooms.
 	 */
+
+	public String toString()
+	{
+		return "The entire maze: " + Arrays.toString(listofrooms);
+	}
 	// TODO: You write the Maze's toString method (optional)
 
 	Room getRoom(int roomNumber)
@@ -159,6 +166,5 @@ public class Maze
             }
         }
 		return chosenRoom;
-
 	}
 }
