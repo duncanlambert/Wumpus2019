@@ -10,6 +10,11 @@ public class Maze
 	Room BatRoom2;
 	Room BatRoom3;
 	Room BatRoom4;
+	Room PitRoom1;
+	Room PitRoom2;
+	Room PitRoom3;
+	Room PitRoom4;
+
 	int[][] listofroomconnections = {{2,8,14}, {7,13,19}, {12,18,0}, {16,17,19}, {11,14,18}, {13,15,18}, {9,14,16},
 			{1,15,17}, {10,16, 0}, {6,11,19}, {8,12,17}, {4,9,13}, {2, 10, 15}, {1, 5, 11}, {4, 6, 0}, {5, 7, 12},
 			{3, 6, 8}, {3, 7, 10}, {2, 4, 5}, {1, 3, 9}};
@@ -81,7 +86,7 @@ public class Maze
 		//--------------------
 		// Insert your code here.
 
-		 if (listofrooms[whichRoom] == BatRoom1 || listofrooms[whichRoom] == BatRoom2 || )
+		 if (listofrooms[whichRoom] == BatRoom1 || listofrooms[whichRoom] == BatRoom2 || listofrooms[whichRoom] == BatRoom3 || listofrooms[whichRoom] == BatRoom4)
 		 {
 		 	hasBats = true;
 		 }
@@ -102,7 +107,15 @@ public class Maze
 	boolean containsPit(int whichRoom)
 	{
 		boolean containsPit;
-		if (listofrooms[whichRoom] == )
+		if (listofrooms[whichRoom] == PitRoom1 || listofrooms[whichRoom] == PitRoom2 || listofrooms[whichRoom] == PitRoom3 || listofrooms[whichRoom] == PitRoom4)
+		{
+			containsPit = true;
+		}
+		else
+		{
+			containsPit = false;
+		}
+		return containsPit;
 	}
  
 	 /**
