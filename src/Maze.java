@@ -101,7 +101,7 @@ public class Maze
 	boolean containsPit(int whichRoom)
 	{
 		boolean containsPit;
-		if (listofrooms[whichRoom] == )
+		//if (listofrooms[whichRoom] == )
 	}
  
 	 /**
