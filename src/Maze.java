@@ -14,6 +14,7 @@ public class Maze
 	Room PitRoom2;
 	Room PitRoom3;
 	Room PitRoom4;
+	Room WumpusRoom;
 
 	int[][] listofroomconnections = {{2,8,14}, {7,13,19}, {12,18,0}, {16,17,19}, {11,14,18}, {13,15,18}, {9,14,16},
 			{1,15,17}, {10,16, 0}, {6,11,19}, {8,12,17}, {4,9,13}, {2, 10, 15}, {1, 5, 11}, {4, 6, 0}, {5, 7, 12},
@@ -69,7 +70,10 @@ public class Maze
 		int[] roomList = null;
 		//--------------------
 		// Insert your code here.
-
+		roomList[0] = listofroomconnections[whichRoom][0];
+		roomList[1] = listofroomconnections[whichRoom][1];
+		roomList[2] = listofroomconnections[whichRoom][2];
+		
 		//--------------------
 		return roomList;
 	}
@@ -123,6 +127,19 @@ public class Maze
 	 * @return whether there is a Wumpus in this room.
 	 */	
 	 // TODO: write this method, including the method signature.
+	boolean containsWumpus(int whichRoom)
+	{
+		boolean containsWumpus;
+		if (listofrooms[whichRoom] == WumpusRoom)
+		{
+			containsWumpus = true;
+		}
+		else
+		{
+			containsWumpus = false;
+		}
+		return containsWumpus;
+	}
  	 
 	/**
 	 * toString - not used in the game, but may be helpful in debugging
