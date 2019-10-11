@@ -38,10 +38,16 @@ public class Maze
 			//System.out.println(listofrooms[i]);
 		}
 
-		BatRoom1 = listofrooms[3];
-		BatRoom2 = listofrooms[6];
-		BatRoom3 = listofrooms[18];
-		BatRoom4 = listofrooms[18];
+		BatRoom1 = listofrooms[(int)(Math.random()*20)];
+		BatRoom2 = listofrooms[(int)(Math.random()*20)];
+		BatRoom3 = listofrooms[(int)(Math.random()*20)];
+		BatRoom4 = listofrooms[(int)(Math.random()*20)];
+		PitRoom1 = listofrooms[(int)(Math.random()*20)];
+		PitRoom2 = listofrooms[(int)(Math.random()*20)];
+		PitRoom3 = listofrooms[(int)(Math.random()*20)];
+		PitRoom4 = listofrooms[(int)(Math.random()*20)];
+
+		WumpusRoom = listofrooms[(int)(Math.random()*20)];
 
 		//--------------------
 	}
