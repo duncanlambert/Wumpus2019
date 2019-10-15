@@ -169,6 +169,13 @@ public class Maze
 		}
 		return containsWumpus;
 	}
+
+	public void setWumpusRoom()
+	{
+		int variable = (int)(Math.random()*3);
+		int WumpusR = listofroomconnections[WumpusRoom.getId()][variable];
+		WumpusRoom = listofrooms[WumpusR];
+	}
  	 
 	/**
 	 * toString - not used in the game, but may be helpful in debugging
