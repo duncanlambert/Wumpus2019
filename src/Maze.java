@@ -10,12 +10,8 @@ public class Maze
 	Room[] listofrooms = new Room[20];
 	Room BatRoom1;
 	Room BatRoom2;
-	Room BatRoom3;
-	Room BatRoom4;
 	Room PitRoom1;
 	Room PitRoom2;
-	Room PitRoom3;
-	Room PitRoom4;
 	Room WumpusRoom;
 
 	int[][] listofroomconnections = {{2,8,14}, {7,13,19}, {12,18,0}, {16,17,19}, {11,14,18}, {13,15,18}, {9,14,16},
@@ -38,16 +34,27 @@ public class Maze
 			//System.out.println(listofrooms[i]);
 		}
 
-		BatRoom1 = listofrooms[(int)(Math.random()*20)];
-		BatRoom2 = listofrooms[(int)(Math.random()*20)];
-		BatRoom3 = listofrooms[(int)(Math.random()*20)];
-		BatRoom4 = listofrooms[(int)(Math.random()*20)];
-		PitRoom1 = listofrooms[(int)(Math.random()*20)];
-		PitRoom2 = listofrooms[(int)(Math.random()*20)];
-		PitRoom3 = listofrooms[(int)(Math.random()*20)];
-		PitRoom4 = listofrooms[(int)(Math.random()*20)];
+		WumpusRoom = listofrooms[(int)(Math.random()*21)];
+		while (BatRoom1 == WumpusRoom)
+		{
+			BatRoom1 = listofrooms[(int)(Math.random()*21)];
+		}
 
-		WumpusRoom = listofrooms[(int)(Math.random()*20)];
+		while (BatRoom2 == WumpusRoom || BatRoom2 == BatRoom1)
+		{
+			BatRoom2 = listofrooms[(int)(Math.random()*21)];
+		}
+
+		while (PitRoom1 == WumpusRoom || PitRoom1 == BatRoom1 || PitRoom1 == BatRoom2)
+		{
+			PitRoom1 = listofrooms[(int)(Math.random()*21)];
+		}
+
+		while (PitRoom2 == WumpusRoom || PitRoom2 == BatRoom1 || PitRoom2 == BatRoom2 || PitRoom2 == PitRoom1)
+		{
+			PitRoom2 = listofrooms[(int)(Math.random()*21)];
+		}
+
 
 		//--------------------
 	}
@@ -97,7 +104,7 @@ public class Maze
 		//--------------------
 		// Insert your code here.
 
-		 if (listofrooms[whichRoom] == BatRoom1 || listofrooms[whichRoom] == BatRoom2 || listofrooms[whichRoom] == BatRoom3 || listofrooms[whichRoom] == BatRoom4)
+		 if (listofrooms[whichRoom] == BatRoom1 || listofrooms[whichRoom] == BatRoom2)
 		 {
 		 	hasBats = true;
 		 }
@@ -118,7 +125,7 @@ public class Maze
 	boolean containsPit(int whichRoom)
 	{
 		boolean containsPit;
-		if (listofrooms[whichRoom] == PitRoom1 || listofrooms[whichRoom] == PitRoom2 || listofrooms[whichRoom] == PitRoom3 || listofrooms[whichRoom] == PitRoom4)
+		if (listofrooms[whichRoom] == PitRoom1 || listofrooms[whichRoom] == PitRoom2)
 		{
 			containsPit = true;
 		}
