@@ -72,6 +72,21 @@ public class Referee {
 
             tunnelListCurrentRoom = CurrentRoom.getTunnels();
 
+            if (myMaze.containsBats(tunnelListCurrentRoom[0]) || myMaze.containsBats(tunnelListCurrentRoom[1]) || myMaze.containsBats(tunnelListCurrentRoom[2]))
+            {
+                System.out.println("Bats are nearby.");
+            }
+
+            if (myMaze.containsPit(tunnelListCurrentRoom[0]) || myMaze.containsPit(tunnelListCurrentRoom[1]) || myMaze.containsPit(tunnelListCurrentRoom[2]))
+            {
+                System.out.println("A pit is nearby.");
+            }
+
+            if (myMaze.containsWumpus(tunnelListCurrentRoom[0]) || myMaze.containsWumpus(tunnelListCurrentRoom[1]) || myMaze.containsWumpus(tunnelListCurrentRoom[2]))
+            {
+                System.out.println("The wumpus is nearby.");
+            }
+
 
             System.out.println(CurrentRoom);
 
