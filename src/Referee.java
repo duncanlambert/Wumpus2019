@@ -59,7 +59,7 @@ public class Referee {
         while(gameIsStillPlaying)
         {
             boolean newRoomChosen = false;
-            System.out.println(CurrentRoomNumber);
+            //System.out.println(CurrentRoomNumber);
 
             CurrentRoom = myMaze.getRoom(CurrentRoomNumber);
 
@@ -74,9 +74,9 @@ public class Referee {
                 moveToRoomNumber = keyReader.nextInt();
                 if (moveToRoomNumber < 20 && moveToRoomNumber > 0)
                 {
-                    System.out.println(tunnelListCurrentRoom[0]);
-                    System.out.println(tunnelListCurrentRoom[1]);
-                    System.out.println(tunnelListCurrentRoom[2]);
+//                    System.out.println(tunnelListCurrentRoom[0]);
+//                    System.out.println(tunnelListCurrentRoom[1]);
+//                    System.out.println(tunnelListCurrentRoom[2]);
                 }
 
                 if (isALegalMove(moveToRoomNumber))
