@@ -12,8 +12,9 @@ public class Referee {
     private Room CurrentRoom;
     private int CurrentRoomNumber;
     private Scanner keyReader = new Scanner(System.in);
-    private int moveToRoom;
+    private int moveToRoomNumber;
     private boolean gameIsStillPlaying = true;
+    private int[] tunnelListCurrentRoom;
 
 	// TODO: decide Rewhich private member variables this class should have and declare them here.
 	
@@ -36,7 +37,10 @@ public class Referee {
 		boolean isLegal = false;
 		//----------------------------------
 		// TODO: insert your code here.
-		
+		if (tunnelListCurrentRoom[0] == proposedDestination || tunnelListCurrentRoom[1] == proposedDestination || tunnelListCurrentRoom[2] == proposedDestination)
+		{
+            isLegal = true;
+        }
 		//----------------------------------
 		return isLegal;
 	}
@@ -54,18 +58,33 @@ public class Referee {
         CurrentRoomNumber = (int)(Math.random()*20);
         while(gameIsStillPlaying)
         {
+            boolean newRoomChosen = false;
             System.out.println(CurrentRoomNumber);
 
             CurrentRoom = myMaze.getRoom(CurrentRoomNumber);
 
-            CurrentRoom.getTunnels();
+            tunnelListCurrentRoom = CurrentRoom.getTunnels();
+
 
             System.out.println(CurrentRoom);
 
-            System.out.println("Which room would you like to move to?");
-            moveToRoom = keyReader.nextInt();
+            while (newRoomChosen == false)
+            {
+                System.out.println("Which room would you like to move to?");
+                moveToRoomNumber = keyReader.nextInt();
+                if (moveToRoomNumber < 20 && moveToRoomNumber > 0)
+                {
+                    System.out.println(tunnelListCurrentRoom[0]);
+                    System.out.println(tunnelListCurrentRoom[1]);
+                    System.out.println(tunnelListCurrentRoom[2]);
+                }
 
-            CurrentRoomNumber = moveToRoom;
+                if (isALegalMove(moveToRoomNumber))
+                {
+                    CurrentRoomNumber = moveToRoomNumber;
+                    newRoomChosen = true;
+                }
+            }
         }
 
 		
