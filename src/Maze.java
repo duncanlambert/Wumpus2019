@@ -34,25 +34,39 @@ public class Maze
 			//System.out.println(listofrooms[i]);
 		}
 
-		WumpusRoom = listofrooms[(int)(Math.random()*21)];
+		WumpusRoom = listofrooms[(int)(Math.random()*20)];
+		System.out.println("WumpusRoom is room "+WumpusRoom);
+
+		BatRoom1 = listofrooms[(int)(Math.random()*20)];
+		System.out.println("BatRoom 1 is room "+BatRoom1);
 		while (BatRoom1 == WumpusRoom)
 		{
-			BatRoom1 = listofrooms[(int)(Math.random()*21)];
+			BatRoom1 = listofrooms[(int)(Math.random()*20)];
+			System.out.println("***** BatRoom 1 is room "+BatRoom1);
 		}
 
+		BatRoom2 = listofrooms[(int)(Math.random()*20)];
+		System.out.println("BatRoom 2 is room "+BatRoom2);
 		while (BatRoom2 == WumpusRoom || BatRoom2 == BatRoom1)
 		{
-			BatRoom2 = listofrooms[(int)(Math.random()*21)];
+			BatRoom2 = listofrooms[(int)(Math.random()*20)];
+			System.out.println("*******BatRoom 2 is room "+BatRoom2);
 		}
 
+		PitRoom1 = listofrooms[(int)(Math.random()*20)];
+		System.out.println("PitRoom 1 is room "+PitRoom1);
 		while (PitRoom1 == WumpusRoom || PitRoom1 == BatRoom1 || PitRoom1 == BatRoom2)
 		{
-			PitRoom1 = listofrooms[(int)(Math.random()*21)];
+			PitRoom1 = listofrooms[(int)(Math.random()*20)];
+			System.out.println("******PitRoom 1 is room "+PitRoom1);
 		}
 
+		PitRoom2 = listofrooms[(int)(Math.random()*20)];
+		System.out.println("PitRoom 2 is room "+PitRoom2);
 		while (PitRoom2 == WumpusRoom || PitRoom2 == BatRoom1 || PitRoom2 == BatRoom2 || PitRoom2 == PitRoom1)
 		{
-			PitRoom2 = listofrooms[(int)(Math.random()*21)];
+			PitRoom2 = listofrooms[(int)(Math.random()*20)];
+			System.out.println("******PitRoom 2 is room "+PitRoom2);
 		}
 
 

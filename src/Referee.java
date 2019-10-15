@@ -56,6 +56,13 @@ public class Referee {
         //System.out.println(myMaze);
 
         CurrentRoomNumber = (int)(Math.random()*20);
+        CurrentRoom = myMaze.getRoom(CurrentRoomNumber);
+        while(CurrentRoom == myMaze.WumpusRoom || CurrentRoom == myMaze.BatRoom1 || CurrentRoom == myMaze.BatRoom2 ||
+                CurrentRoom == myMaze.PitRoom1 || CurrentRoom == myMaze.PitRoom2)
+        {
+            CurrentRoomNumber = (int)(Math.random()*20);
+            CurrentRoom = myMaze.getRoom(CurrentRoomNumber);
+        }
         while(gameIsStillPlaying)
         {
             boolean newRoomChosen = false;
