@@ -15,6 +15,7 @@ public class Referee {
     private int moveToRoomNumber;
     private boolean gameIsStillPlaying = true;
     private int[] tunnelListCurrentRoom;
+    private int arrow = 3;
 
 	// TODO: decide Rewhich private member variables this class should have and declare them here.
 	
@@ -87,44 +88,73 @@ public class Referee {
             if (myMaze.containsWumpus(tunnelListCurrentRoom[0]) || myMaze.containsWumpus(tunnelListCurrentRoom[1]) || myMaze.containsWumpus(tunnelListCurrentRoom[2]))
             {
                 System.out.println("The wumpus is nearby.");
+                System.out.println("Do you want to shoot an arrow? Press 1 for yes and 2 for no.");
+                int decision = keyReader.nextInt();
+                if (decision == 1) {
+                    System.out.println("You can shoot into Room " + tunnelListCurrentRoom[0] + ", Room " +
+                            tunnelListCurrentRoom[1] + ", Room " + tunnelListCurrentRoom[2]);
+                    System.out.println("Which room do you want to shoot into?");
+                    int roomshootinginto = keyReader.nextInt();
+                    if (roomshootinginto == myMaze.WumpusRoom.getId()) {
+                        System.out.println("You have slain the wumpus. You win!");
+                        gameIsStillPlaying = false;
+                        break;
+                    }
+                    else
+                    {
+                        System.out.println("You missed the wumpus. It moved away");
+                        myMaze.setWumpusRoom();
+                    }
+                    arrow = arrow - 1;
+                    if (arrow > 1)
+                    {
+                        System.out.println("You have " + arrow + " arrows left.");
+                    }
+                    else if (arrow == 1)
+                    {
+                        System.out.println("You have 1 arrow left.");
+                    }
+                    else
+                    {
+                        System.out.println("You have no arrows left. You lose.");
+                        gameIsStillPlaying = false;
+                    }
+                }
             }
 
-            System.out.println(CurrentRoom);
+            if (gameIsStillPlaying) {
 
-            while (newRoomChosen == false)
-            {
-                System.out.println("Which room would you like to move to?");
-                moveToRoomNumber = keyReader.nextInt();
-                if (moveToRoomNumber < 20 && moveToRoomNumber > 0)
-                {
-//                    System.out.println(tunnelListCurrentRoom[0]);
-//                    System.out.println(tunnelListCurrentRoom[1]);
-//                    System.out.println(tunnelListCurrentRoom[2]);
+                System.out.println(CurrentRoom);
+
+                while (newRoomChosen == false) {
+                    System.out.println("Which room would you like to move to?");
+                    moveToRoomNumber = keyReader.nextInt();
+                    if (moveToRoomNumber < 20 && moveToRoomNumber > 0) {
+                        //                    System.out.println(tunnelListCurrentRoom[0]);
+                        //                    System.out.println(tunnelListCurrentRoom[1]);
+                        //                    System.out.println(tunnelListCurrentRoom[2]);
+                    }
+
+                    if (isALegalMove(moveToRoomNumber)) {
+                        CurrentRoomNumber = moveToRoomNumber;
+                        newRoomChosen = true;
+                    }
                 }
 
-                if (isALegalMove(moveToRoomNumber))
-                {
-                    CurrentRoomNumber = moveToRoomNumber;
-                    newRoomChosen = true;
+                while (myMaze.containsBats(CurrentRoomNumber)) {
+                    System.out.println("You ran into bats! You've been teleported!");
+                    CurrentRoomNumber = (int) (Math.random() * 20);
                 }
-            }
 
-            while (myMaze.containsBats(CurrentRoomNumber))
-            {
-                System.out.println("You ran into bats! You've been teleported!");
-                CurrentRoomNumber = (int)(Math.random()*20);
-            }
+                if (myMaze.containsPit(CurrentRoomNumber)) {
+                    System.out.println("You fell in a pit! You lose!");
+                    gameIsStillPlaying = false;
+                }
 
-            if (myMaze.containsPit(CurrentRoomNumber))
-            {
-                System.out.println("You fell in a pit! You lose!");
-                gameIsStillPlaying = false;
-            }
-
-            if (myMaze.containsWumpus(CurrentRoomNumber))
-            {
-                System.out.println("You ran into the wumpus! You lose!");
-                gameIsStillPlaying = false;
+                if (myMaze.containsWumpus(CurrentRoomNumber)) {
+                    System.out.println("You ran into the wumpus! You lose!");
+                    gameIsStillPlaying = false;
+                }
             }
         }
 	}
