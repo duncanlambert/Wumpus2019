@@ -68,7 +68,9 @@ public class Referee {
             boolean newRoomChosen = false;
             //System.out.println(CurrentRoomNumber);
 
+
             CurrentRoom = myMaze.getRoom(CurrentRoomNumber);
+
 
             tunnelListCurrentRoom = CurrentRoom.getTunnels();
 
@@ -86,7 +88,6 @@ public class Referee {
             {
                 System.out.println("The wumpus is nearby.");
             }
-
 
             System.out.println(CurrentRoom);
 
@@ -106,6 +107,24 @@ public class Referee {
                     CurrentRoomNumber = moveToRoomNumber;
                     newRoomChosen = true;
                 }
+            }
+
+            while (myMaze.containsBats(CurrentRoomNumber))
+            {
+                System.out.println("You ran into bats! You've been teleported!");
+                CurrentRoomNumber = (int)(Math.random()*20);
+            }
+
+            if (myMaze.containsPit(CurrentRoomNumber))
+            {
+                System.out.println("You fell in a pit! You lose!");
+                gameIsStillPlaying = false;
+            }
+
+            if (myMaze.containsWumpus(CurrentRoomNumber))
+            {
+                System.out.println("You ran into the wumpus! You lose!");
+                gameIsStillPlaying = false;
             }
         }
 	}
