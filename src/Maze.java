@@ -17,7 +17,6 @@ public class Maze
 	int[][] listofroomconnections = {{2,8,14}, {7,13,19}, {12,18,0}, {16,17,19}, {11,14,18}, {13,15,18}, {9,14,16},
 			{1,15,17}, {10,16, 0}, {6,11,19}, {8,12,17}, {4,9,13}, {2, 10, 15}, {1, 5, 11}, {4, 6, 0}, {5, 7, 12},
 			{3, 6, 8}, {3, 7, 10}, {2, 4, 5}, {1, 3, 9}};
-	// TODO: decide which private member variables Maze needs and set them up here.
 	
 	/**
 	 * constructor
@@ -35,38 +34,38 @@ public class Maze
 		}
 
 		WumpusRoom = listofrooms[(int)(Math.random()*20)];
-		System.out.println("WumpusRoom is room "+WumpusRoom);
+		//System.out.println("WumpusRoom is room "+WumpusRoom);
 
 		BatRoom1 = listofrooms[(int)(Math.random()*20)];
-		System.out.println("BatRoom 1 is room "+BatRoom1);
+		//System.out.println("BatRoom 1 is room "+BatRoom1);
 		while (BatRoom1 == WumpusRoom)
 		{
 			BatRoom1 = listofrooms[(int)(Math.random()*20)];
-			System.out.println("***** BatRoom 1 is room "+BatRoom1);
+			//System.out.println("***** BatRoom 1 is room "+BatRoom1);
 		}
 
 		BatRoom2 = listofrooms[(int)(Math.random()*20)];
-		System.out.println("BatRoom 2 is room "+BatRoom2);
+		//System.out.println("BatRoom 2 is room "+BatRoom2);
 		while (BatRoom2 == WumpusRoom || BatRoom2 == BatRoom1)
 		{
 			BatRoom2 = listofrooms[(int)(Math.random()*20)];
-			System.out.println("*******BatRoom 2 is room "+BatRoom2);
+			//System.out.println("*******BatRoom 2 is room "+BatRoom2);
 		}
 
 		PitRoom1 = listofrooms[(int)(Math.random()*20)];
-		System.out.println("PitRoom 1 is room "+PitRoom1);
+		//System.out.println("PitRoom 1 is room "+PitRoom1);
 		while (PitRoom1 == WumpusRoom || PitRoom1 == BatRoom1 || PitRoom1 == BatRoom2)
 		{
 			PitRoom1 = listofrooms[(int)(Math.random()*20)];
-			System.out.println("******PitRoom 1 is room "+PitRoom1);
+			//System.out.println("******PitRoom 1 is room "+PitRoom1);
 		}
 
 		PitRoom2 = listofrooms[(int)(Math.random()*20)];
-		System.out.println("PitRoom 2 is room "+PitRoom2);
+		//System.out.println("PitRoom 2 is room "+PitRoom2);
 		while (PitRoom2 == WumpusRoom || PitRoom2 == BatRoom1 || PitRoom2 == BatRoom2 || PitRoom2 == PitRoom1)
 		{
 			PitRoom2 = listofrooms[(int)(Math.random()*20)];
-			System.out.println("******PitRoom 2 is room "+PitRoom2);
+			//System.out.println("******PitRoom 2 is room "+PitRoom2);
 		}
 
 
@@ -134,8 +133,7 @@ public class Maze
 	 * containsPit - indicates whether there is a pit in the given room.
 	 * @param whichRoom - the number of the room in question
 	 * @return whether there is a pit in this room.
-	 */	
-	 // TODO: write this method, including the method signature.
+	 */
 	boolean containsPit(int whichRoom)
 	{
 		boolean containsPit;
@@ -154,8 +152,7 @@ public class Maze
 	 * containsWumpus - indicates whether there is a Wumpus in the given room.
 	 * @param whichRoom - the number of the room in question
 	 * @return whether there is a Wumpus in this room.
-	 */	
-	 // TODO: write this method, including the method signature.
+	 */
 	boolean containsWumpus(int whichRoom)
 	{
 		boolean containsWumpus;
