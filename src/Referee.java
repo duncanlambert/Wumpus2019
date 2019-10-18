@@ -90,7 +90,8 @@ public class Referee {
                 System.out.println("The wumpus is nearby.");
                 System.out.println("Do you want to shoot an arrow? Press 1 for yes and 2 for no.");
                 int decision = keyReader.nextInt();
-                if (decision == 1) {
+                if (decision == 1)
+                {
                     System.out.println("You can shoot into Room " + tunnelListCurrentRoom[0] + ", Room " +
                             tunnelListCurrentRoom[1] + ", Room " + tunnelListCurrentRoom[2]);
                     System.out.println("Which room do you want to shoot into?");
