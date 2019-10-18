@@ -55,6 +55,7 @@ public class Referee {
 		// TODO: write the Referee method "playGame."
 
 		System.out.println("Playing Game."); // placeholder code.
+        System.out.println("--------------------------------------");
         //System.out.println(myMaze);
 
         CurrentRoomNumber = (int)(Math.random()*20);
@@ -76,15 +77,22 @@ public class Referee {
 
             tunnelListCurrentRoom = CurrentRoom.getTunnels();
 
+
             if (myMaze.containsBats(tunnelListCurrentRoom[0]) || myMaze.containsBats(tunnelListCurrentRoom[1]) || myMaze.containsBats(tunnelListCurrentRoom[2]))
             {
+                System.out.println("--------------------------------------");
                 System.out.println("Bats are nearby.");
+                System.out.println("--------------------------------------");
             }
 
             if (myMaze.containsPit(tunnelListCurrentRoom[0]) || myMaze.containsPit(tunnelListCurrentRoom[1]) || myMaze.containsPit(tunnelListCurrentRoom[2]))
             {
+                System.out.println("--------------------------------------");
                 System.out.println("A pit is nearby.");
+                System.out.println("--------------------------------------");
             }
+
+
 
             if (myMaze.containsWumpus(tunnelListCurrentRoom[0]) || myMaze.containsWumpus(tunnelListCurrentRoom[1]) || myMaze.containsWumpus(tunnelListCurrentRoom[2]))
             {
@@ -101,12 +109,15 @@ public class Referee {
                     System.out.println("Which room do you want to shoot into?");
                     int roomshootinginto = keyReader.nextInt();
                     if (roomshootinginto == myMaze.WumpusRoom.getId()) {
+                        System.out.println("--------------------------------------");
                         System.out.println("You have slain the wumpus. You win!");
+                        System.out.println("--------------------------------------");
                         gameIsStillPlaying = false;
                         break;
                     }
                     else
                     {
+                        System.out.println("--------------------------------------");
                         System.out.println("You missed the wumpus. It moved away");
                         myMaze.setWumpusRoom();
                     }
@@ -114,14 +125,18 @@ public class Referee {
                     if (arrow > 1)
                     {
                         System.out.println("You have " + arrow + " arrows left.");
+                        System.out.println("--------------------------------------");
                     }
                     else if (arrow == 1)
                     {
                         System.out.println("You have 1 arrow left.");
+                        System.out.println("--------------------------------------");
                     }
                     else
                     {
+                        System.out.println("--------------------------------------");
                         System.out.println("You have no arrows left. You lose.");
+                        System.out.println("--------------------------------------");
                         gameIsStillPlaying = false;
                     }
                     decision = 0;
@@ -129,7 +144,6 @@ public class Referee {
                 else if (decision == 2)
                 {
                     decision = 0;
-                    break;
                 }
             }
 
@@ -139,6 +153,7 @@ public class Referee {
 
                 while (newRoomChosen == false) {
                     System.out.println("Which room would you like to move to?");
+                    System.out.println("--------------------------------------");
                     moveToRoomNumber = keyReader.nextInt();
                     if (moveToRoomNumber < 20 && moveToRoomNumber > 0) {
                         //                    System.out.println(tunnelListCurrentRoom[0]);
@@ -153,17 +168,23 @@ public class Referee {
                 }
 
                 while (myMaze.containsBats(CurrentRoomNumber)) {
+                    System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                     System.out.println("You ran into bats! You've been teleported!");
+                    System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                     CurrentRoomNumber = (int) (Math.random() * 20);
                 }
 
                 if (myMaze.containsPit(CurrentRoomNumber)) {
+                    System.out.println("--------------------------------------");
                     System.out.println("You fell in a pit! You lose!");
+                    System.out.println("--------------------------------------");
                     gameIsStillPlaying = false;
                 }
 
                 if (myMaze.containsWumpus(CurrentRoomNumber)) {
+                    System.out.println("--------------------------------------");
                     System.out.println("You ran into the wumpus! You lose!");
+                    System.out.println("--------------------------------------");
                     gameIsStillPlaying = false;
                 }
             }
