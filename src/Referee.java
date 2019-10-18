@@ -85,11 +85,15 @@ public class Referee {
                 System.out.println("A pit is nearby.");
             }
 
+            int decision = 0;
             if (myMaze.containsWumpus(tunnelListCurrentRoom[0]) || myMaze.containsWumpus(tunnelListCurrentRoom[1]) || myMaze.containsWumpus(tunnelListCurrentRoom[2]))
             {
                 System.out.println("The wumpus is nearby.");
-                System.out.println("Do you want to shoot an arrow? Press 1 for yes and 2 for no.");
-                int decision = keyReader.nextInt();
+                while (decision != 1 || decision != 2)
+                {
+                    System.out.println("Do you want to shoot an arrow? Press 1 for yes and 2 for no.");
+                    decision = keyReader.nextInt();
+                }
                 if (decision == 1)
                 {
                     System.out.println("You can shoot into Room " + tunnelListCurrentRoom[0] + ", Room " +
@@ -120,6 +124,10 @@ public class Referee {
                         System.out.println("You have no arrows left. You lose.");
                         gameIsStillPlaying = false;
                     }
+                }
+                if (decision == 2)
+                {
+                    break;
                 }
             }
 
