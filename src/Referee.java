@@ -16,6 +16,7 @@ public class Referee {
     private boolean gameIsStillPlaying = true;
     private int[] tunnelListCurrentRoom;
     private int arrow = 3;
+    private int decision = 0;
 
 	// TODO: decide Rewhich private member variables this class should have and declare them here.
 	
@@ -85,11 +86,10 @@ public class Referee {
                 System.out.println("A pit is nearby.");
             }
 
-            int decision = 0;
             if (myMaze.containsWumpus(tunnelListCurrentRoom[0]) || myMaze.containsWumpus(tunnelListCurrentRoom[1]) || myMaze.containsWumpus(tunnelListCurrentRoom[2]))
             {
                 System.out.println("The wumpus is nearby.");
-                while (decision != 1 || decision != 2)
+                while (decision < 1 || decision > 2)
                 {
                     System.out.println("Do you want to shoot an arrow? Press 1 for yes and 2 for no.");
                     decision = keyReader.nextInt();
@@ -124,9 +124,11 @@ public class Referee {
                         System.out.println("You have no arrows left. You lose.");
                         gameIsStillPlaying = false;
                     }
+                    decision = 0;
                 }
-                if (decision == 2)
+                else if (decision == 2)
                 {
+                    decision = 0;
                     break;
                 }
             }
