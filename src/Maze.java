@@ -34,7 +34,6 @@ public class Maze
 		}
 
 		WumpusRoom = listofrooms[(int)(Math.random()*20)];
-		//System.out.println("WumpusRoom is room "+WumpusRoom);
 
 		BatRoom1 = listofrooms[(int)(Math.random()*20)];
 		//System.out.println("BatRoom 1 is room "+BatRoom1);

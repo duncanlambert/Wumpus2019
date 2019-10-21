@@ -171,6 +171,23 @@ public class Referee {
                     System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                     System.out.println("You ran into bats! You've been teleported!");
                     System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                    Room formerBatRoom = myMaze.BatRoom1;
+                    if (CurrentRoom == myMaze.BatRoom1)
+                    {
+                        while (myMaze.BatRoom1 == formerBatRoom || myMaze.BatRoom1 == myMaze.BatRoom2 || myMaze.BatRoom1 == myMaze.PitRoom1
+                                || myMaze.BatRoom1 == myMaze.PitRoom2 || myMaze.BatRoom1 == myMaze.WumpusRoom)
+                        {
+                            myMaze.BatRoom1 = myMaze.listofrooms[(int)(Math.random()*20)];
+                        }
+                    }
+                    if (CurrentRoom == myMaze.BatRoom2)
+                    {
+                        while (myMaze.BatRoom2 == formerBatRoom || myMaze.BatRoom2 == myMaze.BatRoom1 || myMaze.BatRoom2 == myMaze.PitRoom1
+                                || myMaze.BatRoom2 == myMaze.PitRoom2 || myMaze.BatRoom2 == myMaze.WumpusRoom)
+                        {
+                            myMaze.BatRoom2 = myMaze.listofrooms[(int)(Math.random()*20)];
+                        }
+                    }
                     CurrentRoomNumber = (int) (Math.random() * 20);
                 }
 
