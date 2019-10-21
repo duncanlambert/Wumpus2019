@@ -137,7 +137,7 @@ public class Referee {
                     else
                     {
                         System.out.println("--------------------------------------");
-                        System.out.println("You have no arrows left. You lose.");
+                        System.out.println("\033[31mYou have no arrows left. You lose!\033[0m");
                         System.out.println("--------------------------------------");
                         gameIsStillPlaying = false;
                     }
