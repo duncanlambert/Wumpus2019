@@ -56,6 +56,8 @@ public class Referee {
 
 		System.out.println("Playing Game."); // placeholder code.
         System.out.println("--------------------------------------");
+        gameIsStillPlaying = true;
+        myMaze = new Maze();
         //System.out.println(myMaze);
 
         CurrentRoomNumber = (int)(Math.random()*20);
