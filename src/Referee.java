@@ -172,7 +172,7 @@ public class Referee {
                     System.out.println("You ran into bats! You've been teleported!");
                     System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                     Room formerBatRoom = myMaze.BatRoom1;
-                    if (CurrentRoom == myMaze.BatRoom1)
+                    if (CurrentRoomNumber == myMaze.BatRoom1.getId())
                     {
                         while (myMaze.BatRoom1 == formerBatRoom || myMaze.BatRoom1 == myMaze.BatRoom2 || myMaze.BatRoom1 == myMaze.PitRoom1
                                 || myMaze.BatRoom1 == myMaze.PitRoom2 || myMaze.BatRoom1 == myMaze.WumpusRoom)
@@ -180,7 +180,7 @@ public class Referee {
                             myMaze.BatRoom1 = myMaze.listofrooms[(int)(Math.random()*20)];
                         }
                     }
-                    if (CurrentRoom == myMaze.BatRoom2)
+                    if (CurrentRoomNumber == myMaze.BatRoom2.getId())
                     {
                         while (myMaze.BatRoom2 == formerBatRoom || myMaze.BatRoom2 == myMaze.BatRoom1 || myMaze.BatRoom2 == myMaze.PitRoom1
                                 || myMaze.BatRoom2 == myMaze.PitRoom2 || myMaze.BatRoom2 == myMaze.WumpusRoom)
