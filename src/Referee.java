@@ -59,6 +59,7 @@ public class Referee {
         gameIsStillPlaying = true;
         myMaze = new Maze();
         arrow = 3;
+        decision = 0;
         //System.out.println(myMaze);
 
         CurrentRoomNumber = (int)(Math.random()*20);
