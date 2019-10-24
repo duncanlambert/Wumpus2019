@@ -112,6 +112,14 @@ public class Referee {
                             tunnelListCurrentRoom[1] + ", Room " + tunnelListCurrentRoom[2]);
                     System.out.println("Which room do you want to shoot into?");
                     int roomshootinginto = keyReader.nextInt();
+                    while (roomshootinginto != tunnelListCurrentRoom[0] && roomshootinginto != tunnelListCurrentRoom[1] &&
+                                roomshootinginto != tunnelListCurrentRoom[2])
+                    {
+                        System.out.println("You can shoot into Room " + tunnelListCurrentRoom[0] + ", Room " +
+                                tunnelListCurrentRoom[1] + ", Room " + tunnelListCurrentRoom[2]);
+                        System.out.println("Which room do you want to shoot into?");
+                        roomshootinginto = keyReader.nextInt();
+                    }
                     if (roomshootinginto == myMaze.WumpusRoom.getId()) {
                         System.out.println("--------------------------------------");
                         System.out.println("\033[33mYou have slain the wumpus. You win!\033[0m");
